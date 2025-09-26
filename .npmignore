@@ -1,0 +1,12 @@
+# 絶対に公開してはいけないもの
+id_ed25519
+id_ed25519.pub
+token
+
+# Node.js 不要ファイル
+node_modules
+npm-debug.log
+yarn-error.log
+
+# その他（必要に応じて）
+*.log
