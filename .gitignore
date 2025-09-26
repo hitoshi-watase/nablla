@@ -1,12 +1,18 @@
-# 秘密鍵
+# 秘密鍵（絶対に公開禁止）
+.ssh/
 id_ed25519
 id_ed25519.pub
 token
 
-# npm 関連
+# Node.js 不要ファイル
 node_modules/
 npm-debug.log
+yarn-error.log
 
 # OS/Editor ごみファイル
 .DS_Store
 *.swp
+*.log
+
+# その他
+howtouse
