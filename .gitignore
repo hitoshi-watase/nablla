@@ -1,9 +1,3 @@
-# 秘密鍵（絶対に公開禁止）
-.ssh/
-id_ed25519
-id_ed25519.pub
-token
-
 # Node.js 不要ファイル
 node_modules/
 npm-debug.log
