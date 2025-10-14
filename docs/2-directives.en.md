@@ -95,6 +95,17 @@ Renders exactly one matching branch.
 
 ---
 
+### **`*for` ? Loop with index**  
+Provides both item and index, similar to a standard `for` loop.  
+```html
+<ol>
+  <li *for="(user,i) in users">%i%. %user%</li>
+</ol>
+<!-- Result → 1. Alice / 2. Bob / 3. Carol ... -->
+```
+
+---
+
 ## 4) Iteration Directives  
 
 ### **`*each` ? Iterate through arrays**  
@@ -108,17 +119,6 @@ Repeats an element for each item in a list.
 
 ---
 
-### **`*for` ? Loop with index**  
-Provides both item and index, similar to a standard `for` loop.  
-```html
-<ol *for="(user,i) in users">
-  <li>%i%. %user%</li>
-</ol>
-<!-- Result → 1. Alice / 2. Bob / 3. Carol ... -->
-```
-
----
-
 ## 5) Summary  
 
 | Directive | Purpose | Example | Result |
@@ -128,8 +128,8 @@ Provides both item and index, similar to a standard `for` loop.
 | `*model` | Two-way binding | `<input *model="name" />` | Updates `name` live |
 | `*if` | Conditional display | `<p *if="ok">Yes</p>` | Only if `ok` |
 | `*switch` / `*case` | Multi-branch | `<p *case="'on'">On</p>` | Depends on `switch` |
-| `*each` | Loop items | `<li *each="x in list">%x%</li>` | List items |
 | `*for` | Loop with index | `<li *for="(x,i) in list">%i%: %x%</li>` | Indexed list |
+| `*each` | Loop items | `<li *each="x in list">%x%</li>` | List items |
 
 ---
 
