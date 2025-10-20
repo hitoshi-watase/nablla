@@ -79,6 +79,8 @@ The two directions coexist without conflict because Nablla tracks both sides thr
 | View to Data | *input | One-way input |
 | Combined | *print + *input | Two-way binding |
 
-This two-way link is the simplest form of interactivity in Nablla.  
+Both *print and *input refer to the same scoped data, so changes from either side are reflected naturally.
+There is no direct link between elements - only a single source of truth shared within the scope.
+
 The next section extends this idea to more complex user actions through events.
 
