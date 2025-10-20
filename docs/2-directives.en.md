@@ -1,122 +1,236 @@
 # Directives Overview  
 Last updated: 2025-10-15  
 
-## 1) What Are Directives  
-Directives are Nablla’s attribute-based mini-commands.  
-They extend plain HTML with logic such as loops, conditions, and data binding ? yet remain fully valid markup.  
-Every directive starts with an asterisk (`*`) and acts on its host element.  
+## 1) What Are Directives
+Directives are Nablla’s attribute-based mini-commands.
+They extend plain HTML with logic such as loops and conditions ? while remaining valid HTML.
+Every directive starts with an asterisk (`*`) and acts on its host element (some affect its children as noted).
 
-Example:  
+Example:
 ```html
-<p *let="message='Hello Nablla!'">%message%</p>
-<!-- Result → Hello Nablla! -->
+<p *let="message='Hello world!'">%message%</p>
+
+<p>Hello world!</p>
+^ rendered output
 ```
 
-Here, `*let` defines a local variable `message`, and `%message%` expands its value directly into the DOM.  
-Interpolations like `%...%` work in both **text** and **attribute** values.
+Here, *let defines a local variable message, and %message% expands its value directly into the DOM.
+Interpolations like %...% work in both printed text and attribute values.
+Note: an undefined name expands to an empty string.
 
 ---
 
 ## 2) Core Directives  
 
-### **`*let` ? Define a local variable**  
+### **`*print` - Output text content**
+Replaces the element’s text with the variable value.  
+
+```html
+<h1 *print="'Hello world!'"></h1>
+
+<h1>Hello world!</h1>
+^ rendered output
+> *print - Output text content.
+```
+
+Equivalent to writing `%var%` inside, but easier to read when nesting.
+```html
+<h1>%message%</h1>
+
+<h1></h1>
+^ rendered output
+> %message% - Output text content.
+It vanished - the variable isn’t defined yet. That’s expected. Let’s go to the next step.
+```
+
+---
+
+### **`*let` - Define a local variable**  
 Defines a scoped variable for the current element and its children.  
 Works in text nodes **and** attributes.  
 
 ```html
-<section *let="color='skyblue'">
-  <p style="color:%color%">This text is %color%.</p>
-</section>
-<!-- Result → A blue-colored text “This text is skyblue.” -->
+<h1 *let="message='Hello Nablla!'">%message%</h1>
+
+<h1>Hello Nablla!</h1>
+^ rendered output
+> %message% - Output text content.
+```
+
+The variable defined by *let can be used in any child element.
+
+You can also...:
+```html
+<h1 *let="message='Hello Nablla!'" *print="message"></h1>
+
+<h1>Hello Nablla!</h1>
+^ rendered output
+> *print - Output text content.
 ```
 
 You can also use multiple variables:
 ```html
-<div *let="x=2, y=3">Sum: %x + y%</div>
-<!-- Result → Sum: 5 -->
+<p *let="x=2, y=3">Sum: %x + y%</p>
+
+<p>Sum: 5</p>
+^ rendered output
+> %...% evaluates JavaScript expressions. "x + y" is calculated, not concatenated.
+
+<p *let="x=2, y=3">Sum: %{x + y}%</p>
+
+<p>Sum: 5</p>
+^ rendered output
+Same result - braces make it explicit that this is an expression.
+```
+
+`*let` can also hold arrays or objects.
+
+```html
+<ul *let="fruits=['Apple','Banana','Cherry']">
+  <li>%fruits[0]%</li>
+  <li>%fruits[1]%</li>
+  <li>%fruits[2]%</li>
+</ul>
+
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cherry</li>
+</ul>
+^ rendered output
+> `*let` - Supports arrays and objects.
+```
+
+
+---
+
+### `*if` - Conditional display
+Shows the element only when the given expression is true.
+
+```html
+<p *let="x = 2" *if="x == 2">Collect.</p>
+
+<p>Collect.</p>
+^ rendered output
+> `*if` - Evaluates the expression. The element appears only if the condition is true.
+
+<p *let="x = 2" *if="x == 1">Not collect.</p>
+
+
+^ rendered output
+It vanished whole P tag. - That’s expected.
+The element is completely removed from the DOM.
+```
+
+You can combine `*if` with another one as an else case.
+
+```html
+---
+
+### `*for` - Loop through an array
+Repeats the element for each item in an array.
+
+```html
+<ul *let="fruits=['Apple','Banana','Cherry']">
+  <li *for="fruit of fruits">%fruit%</li>
+</ul>
+
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cherry</li>
+</ul>
+^ rendered output
+> `*for` - Iterates over arrays using the `of` keyword.
+```
+
+You can also access the index if needed.
+
+```html
+<ul *let="fruits=['Apple','Banana','Cherry']">
+  <li *for="(i,fruit) of fruits">%i% - %fruit%</li>
+</ul>
+
+<ul>
+  <li>0 - Apple</li>
+  <li>1 - Banana</li>
+  <li>2 - Cherry</li>
+</ul>
+^ rendered output
+> `*for` - Supports both index and value.  
+> `in` can also be used, but Nablla will warn about deprecated syntax.
+```
+
+Legacy style (keys via `in`):
+
+```html
+<ul *let="fruits=['Apple','Banana','Cherry']">
+  <li *for="i in fruits">%fruits[i]%</li>
+</ul>
+
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Cherry</li>
+</ul>
+^ rendered output
+> Legacy: `in` enumerates keys (indices). Prefer `of` for values; use `(i,fruit) of fruits` when you need both.
 ```
 
 ---
 
-### **`*text` ? Bind text content**  
-Replaces the element’s text with the variable value.  
-Equivalent to writing `%var%` inside, but easier to read when nesting.
+### `*input` - Read and write form values
+Connects a form control’s value with a variable. Works with `<input>`, `<textarea>`, and `<select>`.
+When the user edits the field, the variable updates.
+When the variable changes, the field reflects it.  
+_Note: This example uses a Nablla host (`data={}`) to store the value.
+You’ll learn more about `data` in the next section._
 
 ```html
-<h1 *text="title"></h1>
-<!-- Result → Displays the current value of “title” -->
+<input *input="name">
+<p>Hello, %name%!</p>
+
+<input *input="name">
+<p>Hello, !</p>
+^ rendered output (before typing)
+
+<input *input="name">
+<p>Hello, Nablla!</p>
+^ rendered output (after confirming input "Nablla")
+
 ```
 
-If you prefer inline style:
-```html
-<h1>%title%</h1>
-```
-Both are equivalent.
-
----
-
-### **`*model` ? Two-way binding**  
-Connects form elements (`input`, `textarea`, `select`) to variables.  
-Any user input updates the variable, and data updates refresh the UI.
+Textareas behave the same:
 
 ```html
 <na-blla>
-  <input *model="user" placeholder="Type your name" />
-  <p>Hello, %user%!</p>
-</na-blla>
-<!-- Result → Typing updates “Hello, (your name)!” instantly -->
+  <textarea *input="note"></textarea>
+  <p>%note%</p>
+<na-blla>
+
+<na-blla>
+  <textarea *input="note"></textarea>
+  <p>%note%</p>
+<na-blla>
+^ rendered output (before typing)
+
+<na-blla>
+  <textarea *input="note">Short message.</textarea>
+  <p>Short message.</p>
+<na-blla>
+^ rendered output (after confirming input "Short message.")
 ```
 
----
+Textareas can also display values directly:
 
-## 3) Conditional Directives  
-
-### **`*if` ? Conditional rendering**  
-Displays the element only when the expression is truthy.  
 ```html
-<p *if="loggedIn">Welcome back!</p>
-<!-- Result → Visible only when loggedIn === true -->
+<textarea *let="note='Short message.'">%note%</textarea>
+
+<textarea>Short message.</textarea>
+^ rendered output
 ```
 
-If `loggedIn` becomes false, the element is removed from the DOM but can reappear later.
-
----
-
-### **`*switch` / `*case` ? Multi-branch rendering**  
-Renders exactly one matching branch.  
-```html
-<section *switch="status">
-  <p *case="'idle'">Waiting…</p>
-  <p *case="'loading'">Loading...</p>
-  <p *case="'done'">Done!</p>
-</section>
-<!-- Result → Shows only the paragraph matching current “status” -->
-```
-
----
-
-### **`*for` ? Loop with index**  
-Provides both item and index, similar to a standard `for` loop.  
-```html
-<ol>
-  <li *for="(user,i) in users">%i%. %user%</li>
-</ol>
-<!-- Result → 1. Alice / 2. Bob / 3. Carol ... -->
-```
-
----
-
-## 4) Iteration Directives  
-
-### **`*each` ? Iterate through arrays**  
-Repeats an element for each item in a list.  
-```html
-<ul *each="item in items">
-  <li>%item%</li>
-</ul>
-<!-- Result → Generates a <li> for every item -->
-```
-
+> `*let` defines a variable, and `%note%` writes it inside the textarea content.
 ---
 
 ## 5) Summary  
@@ -124,12 +238,10 @@ Repeats an element for each item in a list.
 | Directive | Purpose | Example | Result |
 |------------|----------|----------|--------|
 | `*let` | Define local variable | `<p *let="x=5">%x%</p>` | `5` |
-| `*text` | Bind text node | `<h1 *text="title"></h1>` | Displays title |
-| `*model` | Two-way binding | `<input *model="name" />` | Updates `name` live |
+| `*print` | Output text content | `<h1 *print="title"></h1>` | Displays title |
 | `*if` | Conditional display | `<p *if="ok">Yes</p>` | Only if `ok` |
-| `*switch` / `*case` | Multi-branch | `<p *case="'on'">On</p>` | Depends on `switch` |
 | `*for` | Loop with index | `<li *for="(x,i) in list">%i%: %x%</li>` | Indexed list |
-| `*each` | Loop items | `<li *each="x in list">%x%</li>` | List items |
+| `*input` | User input (reflects variable) | `<input *input="name" />` | Updates `name` live |
 
 ---
 
