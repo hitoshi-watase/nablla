@@ -3,9 +3,9 @@
 > Status: draft  
 > Applies to: Nablla core, directive engine
 
-## 3) From `*let` to `data` ? the smallest ladder
+## 3) From `*let` to `data` - the smallest ladder
 
-#### Guidance ? Prefer `data` over `*let`
+#### Guidance - Prefer `data` over `*let`
 
 In Chapter 2, we used `*let` to keep examples minimal and easy to follow.  
 In everyday code, define values in `data` and read them with directives (`*print`, `:prop`, etc.).  
@@ -102,7 +102,7 @@ This is why all keys and strings must be quoted and why functions cannot be plac
 
 ## Summary
 
-1. **Data stays simple** ? start with one value, then small objects or arrays.  
-2. **Prefer `data` over `*let`** ? use `data` for anything persistent or shared.  
-3. **Keep JSON valid and small** ? double quotes, flat shape, no functions.  
-4. **Arrays loop naturally with `*for`** ? no helpers needed.
+1. **Data stays simple** - start with one value, then small objects or arrays.  
+2. **Prefer `data` over `*let`** - use `data` for anything persistent or shared.  
+3. **Keep JSON valid and small** - double quotes, flat shape, no functions.  
+4. **Arrays loop naturally with `*for`** - no helpers needed.
