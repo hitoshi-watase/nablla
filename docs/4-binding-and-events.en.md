@@ -92,34 +92,81 @@ User interaction in Nablla follows the same principle as data sharing:
 HTML attributes remain the single source of truth.  
 Instead of writing JavaScript listeners, event behavior is declared directly within the markup and evaluated in the same scoped context.
 
-In Nablla, any native event attribute such as `onclick`, `onchange`, or `oninput` can be written with an expression.  
-That expression is evaluated in the scope of the current Nablla element, giving it access to local data and functions without touching the global window object.
+### Basic Example
+
+In Nablla, any event attribute beginning with `@` such as `@click`, `@change`, or `@input` runs its expression inside the Nablla scope.  
+This allows the code to access both `el` (the current element) and `$event` (the DOM event) without touching the global context.
 
 ```html
 <na-blla data='{"count":0}'>
-  <button onclick="count++">+1</button>
+  <button @click="count++">+1</button> 
   <p *print="count"></p>
 </na-blla>
 
 <button>+1</button>
-<p>0 → 1 → 2 ...</p>
+<p>0 -> 1 -> 2 ...</p>
 ^ Rendered output (omit <na-blla>)
 ```
 
-When the button is clicked, the expression `count++` runs inside the Nablla scope.  
-The data changes immediately, and the `*print` expression that refers to `count` re-evaluates in response.  
-No external script or handler is needed?the attribute itself defines both the action and its context.
+When the user clicks the button, the expression runs within the same scoped data context.  
+The variable `count` updates instantly, and every expression that refers to it is re-evaluated in the same scope.  
+No external script or handler is needed - the attribute itself defines both the action and its context.
 
-Because all event expressions share the same scope as data attributes,  
-Nablla naturally keeps logic and state consistent without introducing new syntax or wrappers.  
-This design allows simple event handling that still respects isolation between different Nablla worlds.
+### Event Propagation and Scope
 
-| Behavior | Where it runs | Access scope |
-|-----------|----------------|--------------|
-| Event expression | Inside element attribute | Same Nablla scope |
-| Data reference | Any variable in scope | Local only |
-| Isolation | Between worlds | Strictly separated |
+Each Nablla element maintains its own evaluation scope.  
+When an event occurs, its expression is executed within that scope first, not in the global environment.  
+This means a variable defined inside one Nablla world never leaks into another.
 
-Events in Nablla are therefore an extension of the same shared-state model,  
-where markup alone describes not only what is shown, but also how it reacts.
+```html
+<na-blla data='{"count":0}'>
+  <button @click="count++">A +1</button>
+  <p *print="count"></p>
+</na-blla>
 
+<na-blla data='{"count":100}'>
+  <button @click="count++">B +1</button>
+  <p *print="count"></p>
+</na-blla>
+
+<p>Each counter moves independently.</p>
+^ Rendered output (omit <na-blla>)
+```
+
+Even though both buttons modify a variable named `count`,  
+each belongs to a different Nablla instance and therefore a different scope.  
+No cross-contamination occurs, because each world maintains its own `data` object and re-evaluation context.
+
+Internally, Nablla evaluates event directives through  
+`Function("scope", "el", "$event", "with(scope){ ... }")`,  
+giving every handler access to its data, element, and event object.
+
+### Element and Event Access
+
+```html
+<na-blla data='{"flag":false, "label":"Make it true."}'>
+  <button @click="flag = true; label='Clicked!'" *print="label"></button>
+  <p *print="flag"></p>
+</na-blla>
+
+<button>Clicked!</button>
+<p>true</p>
+^ Rendered output (omit <na-blla>)
+```
+
+In Nablla, event expressions should update data, not the DOM itself.
+Here, both the button label and the paragraph reflect the same state through *print.
+When the user clicks, flag and label change, and the view updates automatically - no manual DOM manipulation is required.
+
+| Symbol | Meaning |
+|---------|----------|
+| `el` | The current element handling the event |
+| `$event` | The native DOM event object |
+| `scope` | The current Nablla data context |
+
+Nablla does not override native propagation.  
+Events bubble and capture as usual, but their attached expressions are evaluated only within their own scope.  
+This keeps user actions local, predictable, and consistent with the shared-state model established earlier.
+
+In summary, Nablla treats events as part of the same shared flow:  
+data <-> view <-> user action, all described directly in HTML.
