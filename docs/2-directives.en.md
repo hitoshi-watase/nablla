@@ -124,7 +124,6 @@ The element is completely removed from the DOM.
 
 You can combine `*if` with another one as an else case.
 
-```html
 ---
 
 ### `*for` - Loop through an array
