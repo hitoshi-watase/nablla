@@ -84,3 +84,42 @@ There is no direct link between elements - only a single source of truth shared 
 
 The next section extends this idea to more complex user actions through events.
 
+---
+
+## Events
+
+User interaction in Nablla follows the same principle as data sharing:  
+HTML attributes remain the single source of truth.  
+Instead of writing JavaScript listeners, event behavior is declared directly within the markup and evaluated in the same scoped context.
+
+In Nablla, any native event attribute such as `onclick`, `onchange`, or `oninput` can be written with an expression.  
+That expression is evaluated in the scope of the current Nablla element, giving it access to local data and functions without touching the global window object.
+
+```html
+<na-blla data='{"count":0}'>
+  <button onclick="count++">+1</button>
+  <p *print="count"></p>
+</na-blla>
+
+<button>+1</button>
+<p>0 → 1 → 2 ...</p>
+^ Rendered output (omit <na-blla>)
+```
+
+When the button is clicked, the expression `count++` runs inside the Nablla scope.  
+The data changes immediately, and the `*print` expression that refers to `count` re-evaluates in response.  
+No external script or handler is needed?the attribute itself defines both the action and its context.
+
+Because all event expressions share the same scope as data attributes,  
+Nablla naturally keeps logic and state consistent without introducing new syntax or wrappers.  
+This design allows simple event handling that still respects isolation between different Nablla worlds.
+
+| Behavior | Where it runs | Access scope |
+|-----------|----------------|--------------|
+| Event expression | Inside element attribute | Same Nablla scope |
+| Data reference | Any variable in scope | Local only |
+| Isolation | Between worlds | Strictly separated |
+
+Events in Nablla are therefore an extension of the same shared-state model,  
+where markup alone describes not only what is shown, but also how it reacts.
+
