@@ -44,14 +44,14 @@ The next directive, `*input`, introduces the opposite path - from view back to d
 
 ---
 
-## Binding & Events - *input
+### Shared Flow - input
 
-Displaying data is only half of binding.  
-A true binding model must also allow user input to update the underlying data.  
-Nablla provides this reverse flow through the `*input` directive.
+Displaying data is only half of interaction.
+To stay consistent, user input must update the same data that drives the view.
+Nablla handles this shared flow through the *input directive.
 
 Unlike event handlers that must be written in JavaScript, `*input` links the value of an input element directly to a data property.  
-When the user edits the field, the data is immediately updated, and any `*print` or related bindings depending on it are refreshed automatically.
+When the user edits the field, the data updates instantly, and every expression that refers to it is re-evaluated in the same scope.
 
 ```html
 <na-blla data='{"message":"Hello"}'>
@@ -67,7 +67,7 @@ When the user edits the field, the data is immediately updated, and any `*print`
 Typing into the `<input>` updates `message`, which then re-renders the `<p>` element.  
 No explicit listener, no manual update, and no intermediate framework state are required.
 
-This defines Nablla’s two-way binding:
+This describes how Nablla lets data and view share the same state, instead of binding one to another.
 - `*print` handles **data → view** updates.  
 - `*input` handles **view → data** updates.
 
