@@ -40,10 +40,10 @@ Use *let only for short-lived locals (loops/branches).
 <na-blla data='{"count":0}'>
   <p *pring="count"></p>
 </na-blla>
-```
 
 <p>0</p>
 ^ Rendered output (omit `<na-blla>`)
+```
 
 ### Step 4: Quick variants (boolean and null)
 
@@ -51,19 +51,19 @@ Use *let only for short-lived locals (loops/branches).
 <na-blla data='{"flag":true}'>
   <p *pring="flag"></p>
 </na-blla>
-```
 
 <p>true</p>
 ^ Rendered output (omit `<na-blla>`)
+```
 
 ```html
 <na-blla data='{"note":null}'>
   <p *pring="note"></p>
 </na-blla>
-```
 
 <p></p>
 ^ Rendered output (omit `<na-blla>`)
+```
 
 ### Step 5: A tiny object (two fields)
 
@@ -72,11 +72,11 @@ Use *let only for short-lived locals (loops/branches).
   <p *pring="item"></p>
   <p *pring="stock"></p>
 </na-blla>
-```
 
 <p>Pencil</p>
 <p>12</p>
 ^ Rendered output (omit `<na-blla>`)
+```
 
 ### Step 6: A small array (iterate with `*for`)
 
@@ -86,7 +86,6 @@ Use *let only for short-lived locals (loops/branches).
     <li *for="item of items">%item%</li>
   </ul>
 </na-blla>
-```
 
 <ul>
   <li>Pencil</li>
@@ -94,6 +93,7 @@ Use *let only for short-lived locals (loops/branches).
   <li>Eraser</li>
 </ul>
 ^ Rendered output (omit `<na-blla>`)
+```
 
 ### Note: `data` is always text
 
