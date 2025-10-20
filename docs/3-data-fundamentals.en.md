@@ -8,14 +8,14 @@
 #### Guidance ? Prefer `data` over `*let`
 
 In Chapter 2, we used `*let` to keep examples minimal and easy to follow.  
-In everyday code, define values in `data` and read them with directives (`*pring`, `:prop`, etc.).  
+In everyday code, define values in `data` and read them with directives (`*print`, `:prop`, etc.).  
 Use *let only for short-lived locals (loops/branches).
 
 ### Step 1: Recap (`*let` makes a value and shows it)
 
 ```html
 <na-blla>
-  <p *let="message = 'Hello Nablla!'" *pring="message"></p>
+  <p *let="message = 'Hello Nablla!'" *print="message"></p>
 </na-blla>
 
 <p>Hello Nablla!</p>
@@ -27,7 +27,7 @@ Use *let only for short-lived locals (loops/branches).
 
 ```html
 <na-blla data='{"message":"Hello Nablla!"}'>
-  <p *pring="message"></p>
+  <p *print="message"></p>
 </na-blla>
 
 <p>Hello Nablla!</p>
@@ -38,7 +38,7 @@ Use *let only for short-lived locals (loops/branches).
 
 ```html
 <na-blla data='{"count":0}'>
-  <p *pring="count"></p>
+  <p *print="count"></p>
 </na-blla>
 
 <p>0</p>
@@ -49,7 +49,7 @@ Use *let only for short-lived locals (loops/branches).
 
 ```html
 <na-blla data='{"flag":true}'>
-  <p *pring="flag"></p>
+  <p *print="flag"></p>
 </na-blla>
 
 <p>true</p>
@@ -58,7 +58,7 @@ Use *let only for short-lived locals (loops/branches).
 
 ```html
 <na-blla data='{"note":null}'>
-  <p *pring="note"></p>
+  <p *print="note"></p>
 </na-blla>
 
 <p></p>
@@ -69,8 +69,8 @@ Use *let only for short-lived locals (loops/branches).
 
 ```html
 <na-blla data='{"item":"Pencil","stock":12}'>
-  <p *pring="item"></p>
-  <p *pring="stock"></p>
+  <p *print="item"></p>
+  <p *print="stock"></p>
 </na-blla>
 
 <p>Pencil</p>
