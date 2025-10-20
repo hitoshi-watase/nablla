@@ -77,7 +77,7 @@ The two directions coexist without conflict because Nablla tracks both sides thr
 |------------|------------|------|
 | Data to View | *print | One-way output |
 | View to Data | *input | One-way input |
-| Combined | *print + *input | Two-way binding |
+| Shared Scope | *print + *input | Both read and write within one shared state |
 
 Both *print and *input refer to the same scoped data, so changes from either side are reflected naturally.
 There is no direct link between elements - only a single source of truth shared within the scope.
