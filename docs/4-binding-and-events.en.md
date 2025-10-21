@@ -188,3 +188,10 @@ Each world re-evaluates only its own expressions, ensuring isolation and consist
 | Update | Data changes trigger re-evaluation of related expressions |
 | Isolation | Each world manages its own data and event flow |
 | Result | User actions and DOM updates remain automatically synchronized |
+
+Events are declared with @event attributes in HTML.
+Each event expression is evaluated in the Nablla scope of the element.
+On user action: data updates -> expressions that reference it re-evaluate -> the DOM updates via *print.
+Do not write to the DOM in handlers. Change data and let *print render.
+$event is available. el is not injected.
+Worlds are isolated. State and evaluation do not cross worlds.
