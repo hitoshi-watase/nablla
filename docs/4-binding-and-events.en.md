@@ -170,3 +170,26 @@ This keeps user actions local, predictable, and consistent with the shared-state
 
 In summary, Nablla treats events as part of the same shared flow:  
 data <-> view <-> user action, all described directly in HTML.
+
+---
+
+### Summary
+
+Nablla treats events as a natural part of the same shared flow that connects data and view.  
+There are no handlers, bindings, or external callbacks?only attributes that describe how data behaves when users interact with it.
+
+Event expressions run inside the same scoped data context,  
+so updates stay local and predictable, even when multiple Nablla worlds coexist on a page.  
+Each world re-evaluates only its own expressions, ensuring isolation and consistency.
+
+| Concept | Description |
+|----------|-------------|
+| Evaluation | Event expressions are executed in the same Nablla scope |
+| Update | Data changes trigger re-evaluation of related expressions |
+| Isolation | Each world manages its own data and event flow |
+| Philosophy | Data is the only truth; DOM reflects it automatically |
+
+By removing the traditional separation between “logic” and “markup,”  
+Nablla makes event handling declarative, minimal, and self-contained.  
+A user action simply changes data, and the DOM follows?nothing more, nothing less.
+
