@@ -59,7 +59,8 @@ This file can later be reloaded with *load.
 
 ---
 
-> Note: Advanced options like custom filenames or filtered exports will be added later in the reference section.
+Once you can save, you’ll soon wonder how to bring it back.
+That’s where *load begins.
 
 ---
 
