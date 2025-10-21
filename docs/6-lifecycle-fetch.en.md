@@ -35,6 +35,7 @@ Once the server saves it, the resulting JSON file will be used by *fetch in the 
 <p>Q: What is your name?</p>
 <p>A: Nablla.</p>
 <button>Send</button>
+```
 
 What happens  
 1. You click the **Send** button.  

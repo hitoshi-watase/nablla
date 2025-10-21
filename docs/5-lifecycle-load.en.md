@@ -155,3 +155,11 @@ Create this JSON file and upload it through the *load input.
 - Options for partial application  
 - Support for additional file types and mapping rules
 
+
+Once you can load, the flow between data and page becomes complete.  
+From here, Nablla begins to move with your data.
+
+## Summary
+The *save and *load directives form the local cycle of Nablla’s lifecycle.  
+You save a moment, then bring it back ? data and view stay in harmony.  
+Next, *fetch and *post will extend this flow beyond your browser.

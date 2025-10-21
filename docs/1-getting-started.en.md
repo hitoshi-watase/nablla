@@ -66,7 +66,7 @@ No virtual DOM. No custom runtime. HTML remains the source of truth.
 ---
 
 ## 6) Next Steps
-- Learn more directives: `*each`, `*if`, `*switch`, `*model`, etc.
+- Learn more directives: `*let`, `*text`, `*if`, `*model`, etc.
 - Read the philosophy in `docs/0-intro.en.md`.
 - Contribute at: https://github.com/hitoshi-watase/nablla
 

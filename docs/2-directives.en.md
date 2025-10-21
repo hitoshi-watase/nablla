@@ -238,8 +238,8 @@ Textareas can also display values directly:
 |------------|----------|----------|--------|
 | `*let` | Define local variable | `<p *let="x=5">%x%</p>` | `5` |
 | `*print` | Output text content | `<h1 *print="title"></h1>` | Displays title |
-| `*if` | Conditional display | `<p *if="ok">Yes</p>` | Only if `ok` |
-| `*for` | Loop with index | `<li *for="(x,i) in list">%i%: %x%</li>` | Indexed list |
+| `*if` | Conditional display | `<p *if="flag">Yes</p>` | Only if `flag` |
+| `*for` | Loop with index | `<li *for="(i,x) in list">%i%: %x%</li>` | Indexed list |
 | `*input` | User input (reflects variable) | `<input *input="name" />` | Updates `name` live |
 
 ---
