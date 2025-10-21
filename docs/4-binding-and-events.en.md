@@ -154,6 +154,21 @@ giving every handler access to its data, element, and event object.
 ^ Rendered output (omit <na-blla>)
 ```
 
+Use $event
+
+```html
+<na-blla>
+  <button @mouseover="console.log($event.currentTarget)">currentTarget in console log.</button>
+</na-blla>
+
+<button></button>
+^ Rendered output (omit <na-blla>)
+> [ on mouseover, currentTaget in console. ]
+
+```
+The $event object behaves as the standard DOM event,
+so properties like type, target, and currentTarget are available
+
 In Nablla, event expressions should update data, not the DOM itself.
 Here, both the button label and the paragraph reflect the same state through *print.
 When the user clicks, flag and label change, and the view updates automatically - no manual DOM manipulation is required.
