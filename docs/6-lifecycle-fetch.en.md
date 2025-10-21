@@ -196,5 +196,4 @@ so data can move freely between local files and remote servers.
 In real projects, you will often start by preparing a JSON file first and loading it with *fetch.  
 This chapter used the *post -> *fetch order for clarity, showing how the same data can travel both ways.
 
-This completes the full round trip of Nablla’s lifecycle:  
-**data -> change -> save -> load -> post -> fetch**.
+This completes the full round trip of Nablla’s lifecycle.
