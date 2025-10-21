@@ -86,7 +86,7 @@ That’s where *load begins.
 ```
 
 What happens  
-1. You choose a file such as **Nablla-2025-1021151515.json**.  
+1. You choose a file such as **Nablla-20251021-151515.json**.  
 2. Nablla reads it as JSON and updates the data inside this Nablla element.  
 3. The UI automatically re-renders with the new values.
 
