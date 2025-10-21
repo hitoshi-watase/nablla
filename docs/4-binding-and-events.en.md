@@ -158,16 +158,28 @@ Use $event
 
 ```html
 <na-blla>
-  <button @mouseover="console.log($event.currentTarget)">currentTarget in console log.</button>
+  <p @mouseover="console.log($event.currentTarget)">currentTarget in console log.</p>
 </na-blla>
 
-<button></button>
+<p></p>
 ^ Rendered output (omit <na-blla>)
 > [ on mouseover, currentTaget in console. ]
-
 ```
 The $event object behaves as the standard DOM event,
 so properties like type, target, and currentTarget are available
+
+mods
+
+```html
+<na-blla>
+  <p @mouseover.once="console.log($event.currentTarget)">currentTarget in console log once.</p>
+</na-blla>
+
+<p></p>
+^ Rendered output (omit <na-blla>)
+> [ on mouseover, currentTaget in console once. ]
+```
+The .once modifier runs the handler only the first time the event occurs.  
 
 In Nablla, event expressions should update data, not the DOM itself.
 Here, both the button label and the paragraph reflect the same state through *print.
