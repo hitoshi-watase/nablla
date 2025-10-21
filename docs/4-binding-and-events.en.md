@@ -187,7 +187,7 @@ Each world re-evaluates only its own expressions, ensuring isolation and consist
 | Evaluation | Event expressions are executed in the same Nablla scope |
 | Update | Data changes trigger re-evaluation of related expressions |
 | Isolation | Each world manages its own data and event flow |
-| Philosophy | Data is the only truth; DOM reflects it automatically |
+| Result | User actions and DOM updates remain automatically synchronized |
 
 By removing the traditional separation between “logic” and “markup,”  
 Nablla makes event handling declarative, minimal, and self-contained.  
