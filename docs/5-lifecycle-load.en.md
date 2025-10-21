@@ -5,7 +5,7 @@
 
 ## 30-second example
 ```html
-<na-blla id="demo" data='{"question":"What is the present?","answer":"Instant."}'>
+<na-blla data='{"question":"What is the present?","answer":"Instant."}'>
   <p>Q: %question%</p>
   <p>A: %answer%</p>
 
@@ -40,7 +40,7 @@ This file can later be reloaded with *load.
 ## Beginner notes
 - The file format is JSON.  
 - The saved data reflects the current state of the Nablla element.  
-- The browser will usually name it something like `demo.json`.  
+- The browser will usually name it something like `Nablla-20251021-151515.json`.  
 - Saving happens entirely in the browser; no data is sent anywhere.  
 
 ---
@@ -54,7 +54,7 @@ This file can later be reloaded with *load.
 
 ## Event
 - Fires a `nablla-saved` event after completion.  
-- `detail.json` contains the serialized data.  
+- The event’s `detail` object includes a `json` field containing the serialized data.
 - For complete event details, see the Event Reference.  
 
 ---
@@ -71,7 +71,7 @@ That’s where *load begins.
 
 ## 30-second example
 ```html
-<na-blla id="demo" data='{"question":"What is the past?","answer":"Memory."}'>
+<na-blla data='{"question":"What is the past?","answer":"Memory."}'>
   <p>Q: %question%</p>
   <p>A: %answer%</p>
 
@@ -92,7 +92,17 @@ What happens
 
 ---
 
-## Minimal JSON to try
+## Try loading the file you saved earlier
+Use the JSON file you created with *save in the previous section.  
+Upload that file through the *load input ? it restores the same “present” state you saved.
+
+```html
+<p>Q: What is the present?</p>
+<p>A: Instant.</p>
+^ Rendered output after loading (omit <na-blla>)
+```
+
+## Try a new JSON file
 Create this JSON file and upload it through the *load input.  
 ```json
 { "question": "What is the future?", "answer": 42 }
