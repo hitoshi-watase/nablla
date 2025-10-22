@@ -1,7 +1,6 @@
 # Data Fundamentals
 
-> Status: draft  
-> Applies to: Nablla core, directive engine
+This chapter explains how data is defined, stored, and displayed in Nablla, using simple examples with *let and data attributes.  
 
 ## 3) From `*let` to `data` - the smallest ladder
 

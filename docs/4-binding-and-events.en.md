@@ -1,5 +1,7 @@
 ## Binding & Events - *print
 
+This chapter explains how Nablla connects data and the DOM through basic bindings and event attributes.  
+
 Displaying data on screen is the first and most essential act in any framework.  
 In many libraries, even this simple act depends on an intermediate template layer or a separate compilation step.  
 Nablla removes that layer and lets HTML attributes themselves declare how data should appear.

@@ -1,7 +1,6 @@
 # Lifecycle - *save (local file export)
 
-> Lead line  
-> *save is the directive that lets you download the current data of a Nablla element as a local JSON file.
+> This chapter introduces Nablla’s local lifecycle features that let you save and restore data as JSON files directly in the browser.  
 
 ## 30-second example
 ```html
