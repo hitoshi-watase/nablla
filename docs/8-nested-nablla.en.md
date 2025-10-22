@@ -121,7 +121,7 @@ echoing perfectly inside the same world.
 
 ---
 
-### Case 2: Lost appetite
+### Case 2: Isolated scope
 
 ```html
 <na-blla data='{"word":"floccinaucinihilipilification"}'>
@@ -157,7 +157,7 @@ In practice, each Nablla controls its own scope.
 | Mistake | What happens | Correct understanding |
 |----------|---------------|------------------------|
 | Expecting automatic sharing | Inner Nablla cannot “see” parent variables once it defines its own `data` | Only inherits when no `data` is declared |
-| Using the same variable names | Inner and outer values overwrite each other visually | Use distinct names for clarity |
+| Defining child `data` | After the child defines its own `data`, parent data becomes unavailable. | A new `data` creates a new scope. Only variables in the child’s `data` are visible there. |
 | Trying to update parent data | Inner updates stay local | Each Nablla manages its own data scope |
 
 These behaviors are intentional.  
