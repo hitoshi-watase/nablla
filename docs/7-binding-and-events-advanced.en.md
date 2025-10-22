@@ -22,11 +22,11 @@ It interprets tags inside the value and inserts them as real elements.
 <na-blla data='{"content":"A <i>quick</i> brown fox jumps over the <b>lazy</b> dog."}'>
   <p *compose="content"></p>
 </na-blla>
-```
 
 <p>A <i>quick</i> brown fox jumps over the <b>lazy</b> dog.</p>  
 ^ Rendered output (omit `<na-blla>`)  
 
+```
 Use `*compose` only when you intend to include HTML elements inside data.  
 For ordinary text, `*print` is preferred.  
 
@@ -41,10 +41,11 @@ This updates the attribute whenever the bound value changes.
 <na-blla data='{"link":"https://example.com","label":"Open link"}'>
   <a :href="link" *print="label"></a>
 </na-blla>
-```
 
 <a href="https://example.com">Open link</a>  
 ^ Rendered output (omit `<na-blla>`)  
+
+```
 
 The colon syntax connects the attribute to the same reactive data used by `*print` and `*compose`.  
 When the value of `link` changes, the `href` attribute updates automatically.  
