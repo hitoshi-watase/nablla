@@ -65,8 +65,8 @@ Directive | Purpose | Handles HTML | Typical use
 `*compose` | Write HTML content | Yes | Insert markup or formatted text  
 `:prop` | Bind attribute value | N/A | Update attributes dynamically  
 
-These three bindings share the same one-way flow from data to view.  
-Use `*print` for plain text, `*compose` for HTML, and `:prop` for attributes.
+Each directive has its own role.  
+Choose according to whether you need plain text, markup, or attribute updates.
 
 ---
 
