@@ -132,7 +132,7 @@ echoing perfectly inside the same world.
 </na-blla>
 
 <p>The word meaning ‘to regard something as worthless’ is floccinaucinihilipilification. Repeat.</p>
-<p>The word is ... I want to eat a hamburger.</p>
+<p>The word is ... I want to eat a focaccia.</p>
 ^ Rendered output (omit `<na-blla>`)
 ```
 
