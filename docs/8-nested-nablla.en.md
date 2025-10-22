@@ -100,7 +100,7 @@ it becomes completely independent ? the parent’s values are no longer visible.
 
 ---
 
-### Case 1: Shared word
+### Case 1: Shared scope 
 
 ```html
 <na-blla data='{"word":"floccinaucinihilipilification"}'>
