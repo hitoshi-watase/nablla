@@ -156,9 +156,9 @@ In practice, each Nablla controls its own scope.
 
 | Mistake | What happens | Correct understanding |
 |----------|---------------|------------------------|
-| Expecting automatic sharing | Inner Nablla cannot “see” parent variables once it defines its own `data` | Only inherits when no `data` is declared |
-| Defining child `data` | After the child defines its own `data`, parent data becomes unavailable. | A new `data` creates a new scope. Only variables in the child’s `data` are visible there. |
-| Trying to update parent data | Inner updates stay local | Each Nablla manages its own data scope |
+| Expecting automatic sharing | The inner Nablla can access parent data only when it has no `data` of its own. Beginners sometimes expect both to stay linked even after defining child `data`. | Data is inherited automatically only when the child defines no `data`. Once defined, it becomes a separate scope. |
+| Expecting parent values after defining child `data` | After the child defines its own `data`, variables from the parent become unavailable. | A new `data` creates a new scope. Only the child’s variables remain visible. |
+| Trying to update parent data | Changes made inside the inner Nablla do not affect the outer one. | Every Nablla manages its own data independently. |
 
 These behaviors are intentional.  
 By keeping data local to each Nablla,  
