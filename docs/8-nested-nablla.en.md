@@ -54,7 +54,7 @@ While typing, the value inside `<p>` does not change.
 ```
 
 When a second `<na-blla>` is placed inside, the behavior changes:  
-the inner Nablla shows the same value as you type, updating together with the input field.
+the inner Nablla shows the same value as you type, updating simultaneously with the input field.
 
 ---
 

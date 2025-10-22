@@ -1,5 +1,5 @@
 ## Binding & Events - *print
-Last updated: 2025-10-22
+_Last updated: 2025-10-22_
 
 > This chapter explains how Nablla connects data and the DOM through basic bindings and event attributes.  
 

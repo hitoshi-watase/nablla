@@ -1,5 +1,5 @@
 # Data Fundamentals
-Last updated: 2025-10-22
+_Last updated: 2025-10-22_
 
 > This chapter explains how data is defined, stored, and displayed in Nablla, using simple examples with *let and data attributes.  
 

@@ -1,5 +1,5 @@
 # Advanced Binding & Events  
-Last updated: 2025-10-22
+_Last updated: 2025-10-22_
 
 >This chapter explains how Nablla exchanges data with a server, extending the local lifecycle introduced in the Chapter 4: Binding & Events.  
 
@@ -67,7 +67,3 @@ Directive | Purpose | Handles HTML | Typical use
 
 Each directive has its own role.  
 Choose according to whether you need plain text, markup, or attribute updates.
-
----
-
-_Next section: Binding expressions and evaluation order_  

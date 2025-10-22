@@ -1,5 +1,5 @@
 # Introduction (Why)
-Last updated: 2025-10-14
+_Last updated: 2025-10-14_
 
 ## 1) Why this exists
 Templates and “diff layers” tend to grow. They slow down learning, debugging, and rendering.  

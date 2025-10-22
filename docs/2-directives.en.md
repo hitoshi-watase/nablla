@@ -1,5 +1,5 @@
 # Directives Overview  
-Last updated: 2025-10-22  
+_Last updated: 2025-10-22_
 
 > This chapter introduces Nablla’s directive system and explains how HTML attributes control logic and data flow.  
 
