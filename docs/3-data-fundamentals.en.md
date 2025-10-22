@@ -1,6 +1,7 @@
 # Data Fundamentals
+Last updated: 2025-10-22
 
-This chapter explains how data is defined, stored, and displayed in Nablla, using simple examples with *let and data attributes.  
+> This chapter explains how data is defined, stored, and displayed in Nablla, using simple examples with *let and data attributes.  
 
 ## 3) From `*let` to `data` - the smallest ladder
 

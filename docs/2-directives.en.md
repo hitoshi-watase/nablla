@@ -1,7 +1,7 @@
 # Directives Overview  
 Last updated: 2025-10-22  
 
-This chapter introduces Nablla’s directive system and explains how HTML attributes control logic and data flow.  
+> This chapter introduces Nablla’s directive system and explains how HTML attributes control logic and data flow.  
 
 ## 1) What Are Directives
 Directives are Nablla’s attribute-based mini-commands.

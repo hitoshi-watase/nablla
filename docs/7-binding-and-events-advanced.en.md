@@ -1,7 +1,7 @@
 # Advanced Binding & Events  
-_Last updated: 2025-10-22_  
+Last updated: 2025-10-22
 
-*This chapter continues from Chapter 4: Binding & Events, focusing on advanced binding patterns and extended event handling in Nablla.*  
+>This chapter explains how Nablla exchanges data with a server, extending the local lifecycle introduced in the Chapter 4: Binding & Events.  
 
 ---
 

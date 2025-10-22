@@ -1,4 +1,7 @@
 # Lifecycle: Post & Fetch
+Last updated: 2025-10-22
+
+>This chapter introduces Nablla’s local lifecycle features that let you save and restore data as JSON files directly in the browser.  
 
 In the previous chapter, you learned how *save and *load handled data persistence inside the browser.  
 This section extends that same lifecycle outward ? connecting Nablla to remote data sources.

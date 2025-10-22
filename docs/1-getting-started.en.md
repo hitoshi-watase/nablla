@@ -1,7 +1,7 @@
 # Getting Started with Nablla
-Last updated: 2025-10-22
+_Last updated: 2025-10-22_
 
-This chapter helps you set up Nablla and understand its basic structure through short examples.  
+> This chapter helps you set up Nablla and understand its basic structure through short examples.  
 
 ## 1) Setup
 Nablla works in any modern browser ? no build tools, no bundlers.
