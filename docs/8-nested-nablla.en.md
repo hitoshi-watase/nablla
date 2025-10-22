@@ -126,7 +126,7 @@ echoing perfectly inside the same world.
 ```html
 <na-blla data='{"word":"floccinaucinihilipilification"}'>
   <p>The word meaning ‘to regard something as worthless’ is %word%. Repeat.</p>
-  <na-blla data='{"food":"hamburger"}'>
+  <na-blla data='{"food":"focaccia"}'>
     <p>The word is %word%... I want to eat a %food%.</p>
   </na-blla>
 </na-blla>
