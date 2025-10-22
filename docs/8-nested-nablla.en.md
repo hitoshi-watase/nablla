@@ -69,11 +69,11 @@ Even when nested, inner and outer Nablass do not automatically share values ?
 each one manages its own copy of data.
 
 ```html
-<na-blla data='{"title":"We are the world."}'>
-  <h2 *print="title"></h2>
+<na-blla data='{"text":"We are the world."}'>
+  <h2 *print="text"></h2>
 
-  <na-blla data='{"title":"We are the children."}'>
-    <p *print="title"></p>
+  <na-blla data='{"text":"We are the children."}'>
+    <p *print="text"></p>
   </na-blla>
 </na-blla>
 
@@ -82,7 +82,7 @@ each one manages its own copy of data.
 ^ Rendered output (omit `<na-blla>`)
 ```
 
-Here both Nablass use the same property name (`title`),  
+Here both Nablass use the same property name (`text`),  
 but they belong to separate data areas.  
 Changing the outer value will not affect the inner one, and vice versa.
 
