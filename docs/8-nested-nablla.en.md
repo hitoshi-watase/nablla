@@ -94,9 +94,9 @@ without worrying about variable conflicts.
 ## 4. Data inheritance and separation
 
 When Nablla elements are nested,  
-the child Nablla can use the parent’s data as long as it does not define its own.  
+the child Nablla can use the parent's data as long as it does not define its own.  
 Once the child declares its own `data`,  
-it becomes completely independent ? the parent’s values are no longer visible.
+it becomes completely independent ? the parent's values are no longer visible.
 
 ---
 
@@ -104,13 +104,13 @@ it becomes completely independent ? the parent’s values are no longer visible.
 
 ```html
 <na-blla data='{"word":"floccinaucinihilipilification"}'>
-  <p>The word meaning ‘to regard something as worthless’ is %word%. Repeat.</p>
+  <p>The word meaning 'to regard something as worthless' is %word%. Repeat.</p>
   <na-blla>
     <p>The word is %word%.</p>
   </na-blla>
 </na-blla>
 
-<p>The word meaning ‘to regard something as worthless’ is floccinaucinihilipilification. Repeat.</p>
+<p>The word meaning 'to regard something as worthless' is floccinaucinihilipilification. Repeat.</p>
 <p>The word is floccinaucinihilipilification.</p>
 ^ Rendered output (omit `<na-blla>`)
 ```
@@ -125,13 +125,13 @@ echoing perfectly inside the same world.
 
 ```html
 <na-blla data='{"word":"floccinaucinihilipilification"}'>
-  <p>The word meaning ‘to regard something as worthless’ is %word%. Repeat.</p>
+  <p>The word meaning 'to regard something as worthless' is %word%. Repeat.</p>
   <na-blla data='{"food":"focaccia"}'>
     <p>The word is %word%... I want to eat a %food%.</p>
   </na-blla>
 </na-blla>
 
-<p>The word meaning ‘to regard something as worthless’ is floccinaucinihilipilification. Repeat.</p>
+<p>The word meaning 'to regard something as worthless' is floccinaucinihilipilification. Repeat.</p>
 <p>The word is ... I want to eat a focaccia.</p>
 ^ Rendered output (omit `<na-blla>`)
 ```
@@ -143,8 +143,8 @@ so `%word%` shows nothing while `%food%` appears normally.
 
 ---
 
-Nablla’s nested design keeps each element independent by default.  
-Only when the child omits its own `data` does it rely on the parent’s values.  
+Nablla's nested design keeps each element independent by default.  
+Only when the child omits its own `data` does it rely on the parent's values.  
 This separation makes nested components easy to reason about and prevents hidden dependencies.
 
 ---
@@ -157,10 +157,56 @@ In practice, each Nablla controls its own scope.
 | Mistake | What happens | Correct understanding |
 |----------|---------------|------------------------|
 | Expecting automatic sharing | The inner Nablla can access parent data only when it has no `data` of its own. Beginners sometimes expect both to stay linked even after defining child `data`. | Data is inherited automatically only when the child defines no `data`. Once defined, it becomes a separate scope. |
-| Expecting parent values after defining child `data` | After the child defines its own `data`, variables from the parent become unavailable. | A new `data` creates a new scope. Only the child’s variables remain visible. |
+| Expecting parent values after defining child `data` | After the child defines its own `data`, variables from the parent become unavailable. | A new `data` creates a new scope. Only the child's variables remain visible. |
 | Trying to update parent data | Changes made inside the inner Nablla do not affect the outer one. | Every Nablla manages its own data independently. |
 
 These behaviors are intentional.  
 By keeping data local to each Nablla,  
 the framework avoids accidental side effects and makes nested structures predictable.
 
+---
+
+---
+
+### 6. let inside nested scopes
+
+When `*let` is used inside a nested Nablla,  
+it can **read** values created by the parent's `*let`,  
+but it **cannot modify** them.  
+Each Nablla still maintains its own local context.
+
+```html
+<na-blla *let="count=1">
+  <p>Outer: %count%</p>
+  <na-blla *let="count=count+1">
+    <p>Inner: %count%</p>
+  </na-blla>
+</na-blla>
+
+<p>Outer: 1</p>
+<p>Inner: 2</p>
+^ Rendered output (omit `<na-blla>`)
+```
+
+Here the inner Nablla reads the parent's `count`  
+and creates a new one based on it.  
+The parent's value remains unchanged.
+
+In Nablla, `*let` works like a bridge that copies values at creation time,  
+not a live link between scopes.  
+The next chapter explains how to connect them more directly.
+
+---
+
+## 7. Summary
+
+## 7. Summary
+
+Nested Nablla shows how each **Nablla context** (whether `<na-blla>` or another host) forms its own scope.  
+Key points:
+
+- Each context manages its own `data` and lifecycle.  
+- A child context inherits the parent's values **only when it defines no `data` of its own**.  
+- Once the child defines `data`, the two contexts are **isolated**.  
+- Updates inside the child do **not** affect the parent.  
+- `*let` inside a child can **read** values introduced by the parent's `*let`, but **cannot modify** them.
