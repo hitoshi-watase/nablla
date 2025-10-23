@@ -166,7 +166,7 @@ the framework avoids accidental side effects and makes nested structures predict
 
 ---
 
-### 6. let inside nested scopes
+## 6. let inside nested scopes
 
 When `*let` is used inside a nested Nablla,  
 it can **read** values created by the parent's `*let`,  
