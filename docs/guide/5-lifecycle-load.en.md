@@ -1,4 +1,4 @@
-# Lifecycle - *save (local file export)
+# Lifecycle - Save & Load (local file export)
 _Last updated: 2025-10-22_
 
 > This chapter introduces Nablla’s local lifecycle features that let you save and restore data as JSON files directly in the browser.  
