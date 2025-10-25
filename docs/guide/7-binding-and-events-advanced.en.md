@@ -1,4 +1,4 @@
-# Advanced Binding & Events  
+# Binding & Events (advanced)
 _Last updated: 2025-10-22_
 
 >This chapter explains how Nablla exchanges data with a server, extending the local lifecycle introduced in the Chapter 4: Binding & Events.  
