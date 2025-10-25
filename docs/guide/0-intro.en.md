@@ -16,7 +16,7 @@ Attribute-first and tiny. The browser already handles attributes -> data; Nablla
 ### Static hero (3 lines)
 ```html
 <na-blla>
-  <p *let="msg='Hello, Nablla'">%msg%</p>
+  <p *let="message='Hello, Nablla'">%message%</p>
 </na-blla>
 ```
 
