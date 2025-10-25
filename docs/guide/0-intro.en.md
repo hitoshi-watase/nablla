@@ -30,7 +30,7 @@ Attribute-first and tiny. The browser already handles attributes -> data; Nablla
 
 Prefer files? See `./snippets/intro-hero.html` and `./snippets/intro-dynamic.html`.
 
-## Learn the rest (roadmap 1?8)
+## Learn the rest (roadmap 1 - 8)
 1. **Getting started** - how to load the script and verify installation.  
 2. **Directives overview** - what each directive does at a glance.  
 3. **Data fundamentals** - scope, `*let`, and how data flows.  
