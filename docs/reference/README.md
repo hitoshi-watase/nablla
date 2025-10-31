@@ -58,7 +58,7 @@ Nablla is a Web Components based library that treats HTML attributes as the sour
 - [Warnings and Errors](./warnings-and-errors.md)
 - [Glossary](./glossary.md)
 - [Reserved and Transient](./reserved-and-transient.md)
-- [Grammer](./grammer.md)
+- [Grammar](./grammar.md)
 
 ## Target source
 
