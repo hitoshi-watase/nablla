@@ -1,6 +1,6 @@
 # Configuration
 
-_What you will find:_ all configuration surfaces recognized by this implementation of Nablla v1.06. This is a normative list of flags, ambient preload points, registries, and limits. No tutorials or design commentary are included.
+_What you will find:_ all configuration surfaces recognized by this implementation of Nablla v1.0.0. This is a normative list of flags, ambient preload points, registries, and limits. No tutorials or design commentary are included.
 
 ## 1) Global switches
 
@@ -95,7 +95,7 @@ These values are fixed in this version.
 
 ## 7) Version scope
 
-This page reflects Nablla v1.06 as designated by the canonical source. Future versions may evolve registry mutability or add configuration keys. Any added keys will be documented here.
+This page reflects Nablla v1.0.0 as designated by the canonical source. Future versions may evolve registry mutability or add configuration keys. Any added keys will be documented here.
 
 ---
 Back to index: [`README.md`](./README.md)
