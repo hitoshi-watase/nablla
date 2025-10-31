@@ -4,12 +4,12 @@ _What you will find:_ a formal description of directive value shapes and handler
 
 ## 0. Legend (tokens and notation)
 
-- `Expr` ? a JavaScript **expression** evaluated by the runtime (statements are out of scope).
-- `Ident` ? a JavaScript identifier (ASCII suggestion; Unicode identifiers follow JS rules).
-- `String` ? an attribute string literal shown as `"..."` here (actual HTML quoting rules apply).
-- `LValue` ? a writable property reference inside host data:  
+- `Expr` - a JavaScript **expression** evaluated by the runtime (statements are out of scope).
+- `Ident` - a JavaScript identifier (ASCII suggestion; Unicode identifiers follow JS rules).
+- `String` - an attribute string literal shown as `"..."` here (actual HTML quoting rules apply).
+- `LValue` - a writable property reference inside host data:  
   `LValue ::= Ident { ('.' Ident) | ('[' Expr ']') }`
-- `Mods` ? event modifier list: zero or more `.`-prefixed modifier names.
+- `Mods` - event modifier list: zero or more `.`-prefixed modifier names.
 - Braces `{ ... }` mean “repeat zero or more times”. Brackets `[ ... ]` mean “optional”. Literal commas are required where shown.
 - All directive names are **lowercase** and **case-sensitive**.
 - Every `*name` directive has an **equivalent** `n-name` form (not repeated below).
@@ -130,7 +130,7 @@ Mods        ::= { '.' Mod }
 Mod         ::= 'prevent' | 'stop' | 'once' | 'capture' | 'passive' | 'update' | 'noupdate'
 ```
 
-- `EvName` must not contain `.` (dot) ? dots are reserved for modifiers.
+- `EvName` must not contain `.` (dot) - dots are reserved for modifiers.
 - Modifiers are **order-independent**; duplicates are ignored.
 - `update` and `noupdate` are **mutually exclusive** (do not combine on the same handler).
 

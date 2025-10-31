@@ -23,10 +23,10 @@ These attribute names are reserved for Nablla and must not be repurposed for app
 
 The following identifiers are reserved and injected in specific contexts. Do not define application variables with the same names in ways that would rely on shadowing.
 
-- `el` ? injected **only in event handler expressions**; the element that holds the handler.
-- `$event` ? injected **only in event handler expressions**; the native DOM `Event`.
-- `$parent` ? injected **only during `*let` evaluation**; writable reference to the nearest ancestor host’s reactive data. Not present outside `*let`.
-- Method identifiers declared by `*methods` ? available as top-level names in the evaluation context for this host.
+- `el` - injected **only in event handler expressions**; the element that holds the handler.
+- `$event` - injected **only in event handler expressions**; the native DOM `Event`.
+- `$parent` - injected **only during `*let` evaluation**; writable reference to the nearest ancestor host’s reactive data. Not present outside `*let`.
+- Method identifiers declared by `*methods` - available as top-level names in the evaluation context for this host.
 
 Notes:
 - `this` is not defined by the runtime for expressions.
@@ -37,17 +37,17 @@ Notes:
 Keys starting with `$` are reserved for Nablla’s own use. Applications must not rely on their persistence or overwrite them unless explicitly documented.
 
 ### Transient file-operation keys
-- `$upload` ? set by `*upload` for the cycle that produced the result. **Transient** (see §4).
-- `$download` ? set by `*download` for the cycle that produced the result. **Transient**.
+- `$upload` - set by `*upload` for the cycle that produced the result. **Transient** (see §4).
+- `$download` - set by `*download` for the cycle that produced the result. **Transient**.
 
 ### WebSocket state keys (persistent until updated)
-- `$ws_ready` ? boolean
-- `$ws_error` ? last error or `null`
-- `$ws_last` ? last received payload (object/string/binary)
-- `$ws_messages` ? array of received payloads (implementation may cap length)
-- `$ws_closed_at` ? timestamp or `null`
-- `$ws_close_code` ? numeric code or `null`
-- `$ws_close_reason` ? string reason or empty string
+- `$ws_ready` - boolean
+- `$ws_error` - last error or `null`
+- `$ws_last` - last received payload (object/string/binary)
+- `$ws_messages` - array of received payloads (implementation may cap length)
+- `$ws_closed_at` - timestamp or `null`
+- `$ws_close_code` - numeric code or `null`
+- `$ws_close_reason` - string reason or empty string
 
 These WebSocket fields are **not** cleared by the transient cleanup step. They persist until the next change in the socket lifecycle.
 
@@ -85,10 +85,10 @@ These names are reserved for observation; other attributes are handled by normal
 
 Do not attach application properties with the following names to the host element; they are part of the public surface:
 
-- `data` ? reactive data object (getter/setter)
-- `error` ? `{ fatal, warn, debug }` logging configuration
-- `update(force?)` ? schedules an update pass
-- `websocket` ? helper object exposed when `*websocket` is active, with methods `connect`, `reconnect`, `close`, `send`, `status`, and field `urls`
+- `data` - reactive data object (getter/setter)
+- `error` - `{ fatal, warn, debug }` logging configuration
+- `update(force?)` - schedules an update pass
+- `websocket` - helper object exposed when `*websocket` is active, with methods `connect`, `reconnect`, `close`, `send`, `status`, and field `urls`
 
 ## 7) Collision guidance
 
