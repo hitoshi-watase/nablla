@@ -40,18 +40,24 @@ Nablla is a Web Components based library that treats HTML attributes as the sour
   - `scope` denotes the current Nablla data context.
 - The host element is written as `<na-blla>` in examples.
 
-## Document map
+## Index
 
-The reference is split into small, testable pages. Each file is focused and self-contained.
-
-- `docs/reference/overview.md` - Core model: attribute-first design and host responsibilities.
-- `docs/reference/core-concepts.md` - Data wrapping, scope, expression evaluation, and interpolation.
-- `docs/reference/directives.md` - All directives, grouped by category, with precise behavior.
-- `docs/reference/lifecycle.md` - Initialization, update scheduling, rendering, and finalization.
-- `docs/reference/communication.md` - `*fetch`, `*post`, `*api`, `*upload`, `*download`, and `*into`.
-- `docs/reference/websocket.md` - `*websocket` and `*ws-send`, state keys, and events.
-- `docs/reference/world.md` - World isolation and prefix-based composition.
-- `docs/reference/advanced.md` - AST hooks, filters, methods injection, and warning/error events.
+- [Overview](./overview.md)
+- [Core Concepts](./core-concepts.md)
+- [Directives](./directives.md)
+- [Lifecycle](./lifecycle.md)
+- [Communication](./communication.md)
+- [WebSocket](./websocket.md)
+- [World](./world.md)
+- [Host API](./host-api.md)
+- [Expressions](./expressions.md)
+- [Filters](./filters.md)
+- [Events](./events.md)
+- [Advanced](./advanced.md)
+- [Configuration](./configuration.md)
+- [Warnings and Errors](./warnings-and-errors.md)
+- [Glossary](./glossary.md)
+- [Reserved and Transient](./reserved-and-transient.md)
 
 ## Target source
 
